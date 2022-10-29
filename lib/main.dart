@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pattern_getx/pages/home_page.dart';
 import 'package:pattern_getx/pages/main_page.dart';
+import 'package:pattern_getx/pages/splash_page.dart';
+import 'package:pattern_getx/pages/starter_page.dart';
 import 'package:pattern_getx/services/bind_service.dart';
-
 import 'services/di_service.dart';
 
 void main() async {
-  //await DIService.init();
+  await DIService.init();
   runApp(const MyApp());
 }
 
@@ -22,15 +23,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MainPage(),
-      initialBinding: BindService(),
-      getPages: [
-        GetPage(
-          name: MainPage.id,
-          page: () => const MainPage(),
-          binding: BindService(),
-        ),
-      ],
+      home: const SplashPage(),
+      // initialBinding: BindService(),
+      // getPages: [
+      //   GetPage(
+      //     name: MainPage.id,
+      //     page: () => const MainPage(),
+      //     binding: BindService(),
+      //   ),
+      // ],
     );
   }
 }
